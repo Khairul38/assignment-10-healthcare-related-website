@@ -1,0 +1,39 @@
+[
+    {
+        "id": 1,
+        "img": "https://demo.themeies.com/menova/assets/img/service/1.jpg",
+        "name": "Cardiac Surgery",
+        "detail": "Facilisi pellen tesque an rhoncus cubilia elementum tellus suspen"
+    },
+    {
+        "id": 2,
+        "img": "https://demo.themeies.com/menova/assets/img/service/2.jpg",
+        "name": "Dental Services",
+        "detail": "Facilisi pellen tesque an rhoncus cubilia elementum tellus suspen"
+    },
+    {
+        "id": 3,
+        "img": "https://demo.themeies.com/menova/assets/img/service/3.jpg",
+        "name": "Health Check",
+        "detail": "Facilisi pellen tesque an rhoncus cubilia elementum tellus suspen"
+    },
+    {
+        "id": 4,
+        "img": "https://demo.themeies.com/menova/assets/img/service/4.jpg",
+        "name": "Psycho Therapy",
+        "detail": "Facilisi pellen tesque an rhoncus cubilia elementum tellus suspen"
+    },
+    {
+        "id": 5,
+        "img": "https://demo.themeies.com/menova/assets/img/service/5.jpg",
+        "name": "Ambulance Car",
+        "detail": "Facilisi pellen tesque an rhoncus cubilia elementum tellus suspen"
+    },
+    {
+        "id": 6,
+        "img": "https://demo.themeies.com/menova/assets/img/service/6.jpg",
+        "name": "Skin Care",
+        "detail": "Facilisi pellen tesque an rhoncus cubilia elementum tellus suspen"
+    }
+    
+]
