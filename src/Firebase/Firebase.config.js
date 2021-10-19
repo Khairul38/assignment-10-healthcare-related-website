@@ -1,11 +1,10 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyBXTgpT1Y7tGB4ZQQKoB2m0kuVwBu7JDgE",
-    authDomain: "simple-firebase-authenti-6fe0d.firebaseapp.com",
-    projectId: "simple-firebase-authenti-6fe0d",
-    storageBucket: "simple-firebase-authenti-6fe0d.appspot.com",
-    messagingSenderId: "549925524386",
-    appId: "1:549925524386:web:66fbc41ef8c9027d4898fb",
-    measurementId: "G-94W9DT7SDP"
+    apiKey: "AIzaSyCuMBPSKc8q0QPI3AyYJXr3cdZFncUQb2k",
+    authDomain: "healthcare-related-websi-de7f4.firebaseapp.com",
+    projectId: "healthcare-related-websi-de7f4",
+    storageBucket: "healthcare-related-websi-de7f4.appspot.com",
+    messagingSenderId: "238750320314",
+    appId: "1:238750320314:web:84ed8443d10fcd7593a483"
 };
 
 export default firebaseConfig;
