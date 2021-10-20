@@ -6,10 +6,10 @@ import useAuth from '../../Hooks/useAuth/useAuth';
 
 const Login = () => {
     const { allContext } = useAuth();
-    const { loginUsingGoogle, loginUsingFacebook, handleLogin, error} = allContext;
+    const { loginUsingGoogle, loginUsingFacebook, handleLogin, setUser, setError, error } = allContext;
     const location = useLocation();
     const history = useHistory()
-    const redirect_url = location.state?.from || '/';
+    const redirect_url = location?.state?.from || '/home';
 
     const handleGoogleLogin = () => {
         loginUsingGoogle()
@@ -29,6 +29,7 @@ const Login = () => {
     //     // e.preventDefault();
     //     handleLogin()
     //         .then(result => {
+    //             setUser(result.user)
     //             history.push(redirect_url);
     //         })
     // }
