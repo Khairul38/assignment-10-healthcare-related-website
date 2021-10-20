@@ -4,8 +4,9 @@ import useAuth from '../../Hooks/useAuth/useAuth';
 import './Header.css';
 
 const Header = () => {
-    const { user, logout } = useAuth();
-    console.log(user);
+    const { allContext } = useAuth();
+    const { user, logout}= allContext;
+    // console.log(user);
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -29,6 +30,16 @@ const Header = () => {
                             <li className="nav-item">
                                 <Link className="nav-link" to="/departments">
                                     Departments
+                                </Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/doctors">
+                                    Doctors
+                                </Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/aboutUs">
+                                    About Us
                                 </Link>
                             </li>
                         </ul>

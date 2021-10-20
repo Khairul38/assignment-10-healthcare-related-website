@@ -5,7 +5,8 @@ import { Link, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth/useAuth';
 
 const Login = () => {
-    const { loginUsingGoogle, loginUsingFacebook, handleLogin, error } = useAuth();
+    const { allContext } = useAuth();
+    const { loginUsingGoogle, loginUsingFacebook, handleLogin, error} = allContext;
     const location = useLocation();
     const history = useHistory()
     const redirect_url = location.state?.from || '/';

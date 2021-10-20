@@ -1,0 +1,18 @@
+.front-icon span {
+    font-size: 30px;
+    color: #51B8F2;
+    background-color: #E4F5FF;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.front-icon:hover span {
+    color: white;
+    background-color: #51B8F2;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.front-icon:hover h3 {
+    color: #51B8F2;
+    transition: all 0.3s ease-in-out 0s;
+}

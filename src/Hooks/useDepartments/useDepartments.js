@@ -7,7 +7,7 @@ const useDepartments = () => {
             .then(res => res.json())
             .then(data => setDepartments(data));
     }, []);
-    return [departments]
+    return {departments}
 };
 
 export default useDepartments;

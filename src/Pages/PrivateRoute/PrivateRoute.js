@@ -3,7 +3,8 @@ import { Redirect, Route } from 'react-router';
 import useAuth from '../../Hooks/useAuth/useAuth';
 
 const PrivateRoute = ({ children, ...rest }) => {
-    const { user, isLoading } = useAuth();
+    const { allContext } = useAuth();
+    const { user, isLoading} = allContext;
     if (isLoading) {
         return <div className="d-flex justify-content-center mt-3">
             <div className="spinner-border text-primary" role="status">

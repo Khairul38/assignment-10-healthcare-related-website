@@ -4,11 +4,11 @@ import useServices from '../../Hooks/useServices/useServices';
 import ServiceItem from '../Item/ServiceItem';
 
 const Services = () => {
-    const [services] = useServices()
+    const {services} = useServices()
     return (
         <div className="container">
             <div className="mt-5 text-center">
-                <h1><span className="text-color">Our Available</span> Services</h1>
+                <h1><span className="text-color fw-bold">Our Available</span> Services</h1>
                 <p>What Kind Ok The Service You Can Grt From Us.</p>
             </div>
             <div className="container my-5">

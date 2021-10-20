@@ -4,11 +4,11 @@ import useDepartments from '../../Hooks/useDepartments/useDepartments';
 import DepartmentItem from '../Item/DepartmentItem';
 
 const Departments = () => {
-    const [departments] = useDepartments();
+    const {departments} = useDepartments();
     return (
         <div className="container">
             <div className="mt-5 text-center">
-                <h1><span className="text-color">Our</span> Departments</h1>
+                <h1><span className="text-color fw-bold">Our</span> Departments</h1>
                 <p>Who Is Behind The Best Medical Service In Our Clinic?</p>
             </div>
             <div className="container my-5">

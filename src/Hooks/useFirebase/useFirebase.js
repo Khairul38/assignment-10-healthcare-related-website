@@ -71,15 +71,15 @@ const useFirebase = () => {
     }
 
     const getName = e => {
-        setName(e.target.value)
-        console.log(e.target.value)
+        setName(e?.target?.value)
+        console.log(e?.target?.value)
     }
     const getEmail = e => {
-        setEmail(e.target.value)
+        setEmail(e?.target?.value)
         console.log(e.target.value)
     }
     const getPassword = e => {
-        setPassword(e.target.value)
+        setPassword(e?.target?.value)
         console.log(e.target.value)
     }
 
@@ -104,7 +104,7 @@ const useFirebase = () => {
         })
     }, [auth])
 
-    return { user, error, isLoading, setIsLoading, loginUsingGoogle, loginUsingFacebook, getName, getEmail, getPassword, handleRegistration, handleLogin, logout }
+    return { user, error, isLoading, name, setIsLoading, loginUsingGoogle, loginUsingFacebook, getName, getEmail, getPassword, handleRegistration, handleLogin, logout }
 };
 
 export default useFirebase;
