@@ -5,11 +5,10 @@ import './Header.css';
 
 const Header = () => {
     const { allContext } = useAuth();
-    const { user, logout}= allContext;
-    // console.log(user);
+    const { user, logout } = allContext;
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
                 <div className="container-fluid">
                     <NavLink className="navbar-brand" to="/">
                         <img src="https://demo.themeies.com/html/prolexe/assets/img/logo/logo.png" alt="" />
@@ -44,7 +43,10 @@ const Header = () => {
                             </li>
                         </ul>
                         {user.email ?
-                            <button onClick={logout} className="btn btn-primary">Logout</button> :
+                            <>
+                            <h5 className="me-3">{user.displayName}</h5>
+                            <button onClick={logout} className="btn btn-primary">Logout</button>
+                            </> :
                             <div className="d-flex gap-3">
                                 <Link className="btn btn-primary" to="/login" role="button">Login</Link>
                                 <Link className="btn btn-primary" to="/register" role="button">Register</Link>
