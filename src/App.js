@@ -16,7 +16,7 @@ import Services from './Pages/Services/Services';
 
 function App() {
   return (
-    <div className="">
+    <div>
       <AuthProvider>
         <BrowserRouter>
           <Header></Header>
@@ -29,9 +29,6 @@ function App() {
             </Route>
             <PrivateRoute exact path="/services">
               <Services></Services>
-            </PrivateRoute>
-            <PrivateRoute path="/services/:serviceId">
-              <ServiceDetail></ServiceDetail>
             </PrivateRoute>
             <PrivateRoute path="/departments">
               <Departments></Departments>
@@ -48,6 +45,9 @@ function App() {
             <Route path="/register">
               <Register></Register>
             </Route>
+            <PrivateRoute path="/services/:serviceId">
+              <ServiceDetail></ServiceDetail>
+            </PrivateRoute>
             <Route path="*">
               <NotFound></NotFound>
             </Route>

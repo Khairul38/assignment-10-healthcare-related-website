@@ -5,74 +5,32 @@ import initializeAuthentication from '../../Firebase/Firebase.init';
 initializeAuthentication();
 
 const useFirebase = () => {
-    const [user, setUser] = useState({})
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [error, setError] = useState('')
+    const [user, setUser] = useState({});
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(true);
 
-
     const auth = getAuth();
+
+    /* Provider */
     const googleProvider = new GoogleAuthProvider();
     const facebookProvider = new FacebookAuthProvider();
 
+    /* Google Login/Register */
     const loginUsingGoogle = () => {
         setIsLoading(true);
-        return signInWithPopup(auth, googleProvider)
-            .then(result => {
-                setUser(result.user);
-            })
-            .catch(error => {
-                setError(error.massage);
-            })
-            .finally(() => setIsLoading(false));
+        return signInWithPopup(auth, googleProvider);
     }
 
+    /* Facebook Login/Register */
     const loginUsingFacebook = () => {
         setIsLoading(true);
-        return signInWithPopup(auth, facebookProvider)
-            .then(result => {
-                setUser(result.user);
-                console.log(result.user);
-            })
-            .catch(error => {
-                setError(error.massage);
-            })
-            .finally(() => setIsLoading(false));
+        return signInWithPopup(auth, facebookProvider);
     }
 
-    const handleRegistration = e => {
-        setIsLoading(true);
-        console.log("clicked");
-        e.preventDefault();
-        createUserWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                setUser(result.user)
-                setUserName()
-                window.location.reload();
-                console.log(result.user);
-            })
-            .catch(error => {
-                setError(error.massage);
-            })
-            .finally(() => setIsLoading(false));
-    }
-    const handleLogin = (e) => {
-        setIsLoading(true);
-        // console.log("clicked");
-        e.preventDefault();
-        signInWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                setUser(result.user)
-                console.log(result.user);
-            })
-            .catch(error => {
-                setError(error.massage);
-            })
-            .finally(() => setIsLoading(false));
-    }
-
+    /* Display Name/User Name */
     const setUserName = () => {
         updateProfile(auth.currentUser, {
             displayName: name
@@ -83,19 +41,30 @@ const useFirebase = () => {
             })
     }
 
-    const getName = e => {
-        setName(e?.target?.value)
-        console.log(e?.target?.value)
-    }
-    const getEmail = e => {
-        setEmail(e?.target?.value)
-        console.log(e.target.value)
-    }
-    const getPassword = e => {
-        setPassword(e?.target?.value)
-        console.log(e.target.value)
+    /* Email+Password Registration */
+    const handleRegistration = () => {
+        setIsLoading(true);
+        return createUserWithEmailAndPassword(auth, email, password);
     }
 
+    /* Email+Password Login */
+    const handleLogin = () => {
+        setIsLoading(true);
+        return signInWithEmailAndPassword(auth, email, password);
+    }
+
+    /* Get Input Field */
+    const getName = e => {
+        setName(e?.target?.value);
+    }
+    const getEmail = e => {
+        setEmail(e?.target?.value);
+    }
+    const getPassword = e => {
+        setPassword(e?.target?.value);
+    }
+
+    /* Log Out */
     const logout = () => {
         setIsLoading(true);
         signOut(auth)
@@ -105,6 +74,7 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false));
     }
 
+    /* Get the currently signed -in user */
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, user => {
             if (user) {
@@ -116,7 +86,7 @@ const useFirebase = () => {
             setIsLoading(false);
         });
         return () => unsubscribed;
-    }, []);
+    }, [auth]);
 
     return { user, error, isLoading, setError, setUser, setUserName, setIsLoading, loginUsingGoogle, loginUsingFacebook, getName, getEmail, getPassword, handleRegistration, handleLogin, logout }
 };

@@ -9,8 +9,8 @@ import './Home.css';
 import { faBriefcaseMedical, faTint, faHeartbeat, faAmbulance, faNotesMedical, faStethoscope } from '@fortawesome/free-solid-svg-icons';
 
 const Home = () => {
-    const {services} = useServices();
-    const {departments} = useDepartments();
+    const { services } = useServices();
+    const { departments } = useDepartments();
 
     /* Icon */
     const briefcase = <FontAwesomeIcon icon={faBriefcaseMedical} />
@@ -33,7 +33,7 @@ const Home = () => {
                             <div className=" text-center p-5">
                                 <h3 className="fw-bold">Best Medical Center</h3>
                                 <p>"Medical Doctors perform health assessments and provide health and wellness advice to
-                                patients."</p>
+                                    patients."</p>
                             </div>
                         </div>
                     </Carousel.Item>
@@ -60,7 +60,7 @@ const Home = () => {
                             <div className=" text-center p-5">
                                 <h3 className="fw-bold">We Care For Your Health</h3>
                                 <p>"Medical Doctors create treatment plans and provide health and wellness advice to
-                                patients."</p>
+                                    patients."</p>
                             </div>
                         </div>
                     </Carousel.Item>

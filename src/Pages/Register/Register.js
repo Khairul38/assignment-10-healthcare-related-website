@@ -6,32 +6,65 @@ import useAuth from '../../Hooks/useAuth/useAuth';
 
 const Register = () => {
     const { allContext } = useAuth();
-    const { loginUsingGoogle, loginUsingFacebook, getName, getEmail, getPassword, handleRegistration, error} = allContext;
-    const location = useLocation();
-    const history = useHistory()
-    const redirect_url = location.state?.from || '/';
+    const {
+        getName,
+        getEmail,
+        getPassword,
+        setUser,
+        setUserName,
+        setIsLoading,
+        loginUsingGoogle,
+        loginUsingFacebook,
+        handleRegistration,
+        error,
+        setError } = allContext;
 
+    /* Redirect */
+    const location = useLocation();
+    const history = useHistory();
+    const redirect_url = location?.state?.from || '/';
+
+    /* Google Login & Redirect */
     const handleGoogleLogin = () => {
         loginUsingGoogle()
             .then(result => {
+                setUser(result.user);
                 history.push(redirect_url);
             })
+            .catch(error => {
+                setError(error.massage);
+            })
+            .finally(() => setIsLoading(false));
     }
 
+    /* Facebook Login & Redirect */
     const handleFacebookLogin = () => {
         loginUsingFacebook()
             .then(result => {
+                setUser(result.user);
                 history.push(redirect_url);
             })
+            .catch(error => {
+                setError(error.massage);
+            })
+            .finally(() => setIsLoading(false));
     }
 
-    // const register = () => {
-    //     // e.preventDefault();
-    //     handleRegistration()
-    //         .then(result => {
-    //             history.push(redirect_url);
-    //         })
-    // }
+    /* Email+Password Registration & Redirect */
+    const register = (e) => {
+        e.preventDefault();
+        handleRegistration()
+            .then(result => {
+                setUser(result.user);
+                setUserName();
+                history.push(redirect_url);
+                window.location.reload();
+            })
+            .catch(error => {
+                setError(error.massage);
+            })
+            .finally(() => setIsLoading(false));
+    }
     return (
         <div className="container row mx-auto align-items-center g-4 mt-5">
             <div className="col-md-7">
@@ -39,17 +72,20 @@ const Register = () => {
             </div>
             <div className=" col-md-5">
                 <h1>Register an Account</h1>
-                <form onSubmit={handleRegistration} className="mt-5">
+                {/* On Submit */}
+                <form onSubmit={register} className="mt-5">
                     <div className="mb-3">
                         <label htmlFor="validationDefault01" className="form-label">Name</label>
+                        {/* On Blur */}
                         <input onBlur={getName} type="text" className="form-control" id="validationDefault01" placeholder="Name" aria-label="Name"
-                             required />
+                            required />
                         <div className="text-danger">
                             {error}
                         </div>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="validationDefault02" className="form-label">Email</label>
+                        {/* On Blur */}
                         <input onBlur={getEmail} type="email" className="form-control" id="validationDefault02"
                             placeholder="Email" aria-label="Email"
                             autoComplete="email" required />
@@ -59,6 +95,7 @@ const Register = () => {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="validationDefault03" className="form-label">Password</label>
+                        {/* On Blur */}
                         <input onBlur={getPassword} type="password" className="form-control" id="validationDefault03"
                             placeholder="Password" aria-label="Password"
                             autoComplete="current-password" required />
@@ -82,9 +119,11 @@ const Register = () => {
                 <div className="text-center mt-2">
                     <h6>Or</h6>
                     <h6>Continue With</h6>
+                    {/* On Click */}
                     <button onClick={handleGoogleLogin} className="btn">
                         <img width="40px" src={icon1} alt="" />
                     </button>
+                    {/* On Click */}
                     <button onClick={handleFacebookLogin} className="btn">
                         <img width="40px" src={icon2} alt="" />
                     </button>

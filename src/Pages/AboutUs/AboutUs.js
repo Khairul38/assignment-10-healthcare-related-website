@@ -17,7 +17,7 @@ const AboutUs = () => {
             <div className="container my-5">
                 <div className="row g-5 align-items-center">
                     <div className="col-lg-6">
-                        <img className="img-fluid" src="https://demo.themeies.com/menova/assets/img/about/1.jpg" alt=""/>
+                        <img className="img-fluid" src="https://demo.themeies.com/menova/assets/img/about/1.jpg" alt="" />
                     </div>
                     <div className="col-lg-6">
                         <div className="accordion" id="accordionExample">

@@ -8,7 +8,7 @@ const Header = () => {
     const { user, logout } = allContext;
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+            <nav className="navbar navbar-expand-md navbar-light bg-light sticky-top">
                 <div className="container-fluid">
                     <NavLink className="navbar-brand" to="/">
                         <img src="https://demo.themeies.com/html/prolexe/assets/img/logo/logo.png" alt="" />

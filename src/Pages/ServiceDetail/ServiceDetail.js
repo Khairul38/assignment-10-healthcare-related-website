@@ -4,16 +4,17 @@ import useAuth from '../../Hooks/useAuth/useAuth';
 
 const ServiceDetail = () => {
     const { serviceId } = useParams();
-    const {services} = useAuth()
-    const data = services.find(service => service.id === Number(serviceId))
+    const { services } = useAuth();
+
+    const data = services.find(service => service.id === Number(serviceId));
     return (
         <div className="container">
             <div className="d-lg-flex align-items-center my-5">
                 <div className="m-5">
-                    <h1 className=" fw-bold text-color">{data.name}</h1>
-                    <p>{data.detail}</p>
+                    <h1 className=" fw-bold text-color">{data?.name}</h1>
+                    <p>{data?.detail}</p>
                 </div>
-                <img className="img-fluid" src={data.img} alt="" />
+                <img className="img-fluid" src={data?.img} alt="" />
             </div>
             <div className="d-lg-flex align-items-center my-5">
                 <img className="img-fluid" src="https://disin-react.hibootstrap.com/images/about1.jpg" alt="" />

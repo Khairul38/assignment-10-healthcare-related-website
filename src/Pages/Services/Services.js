@@ -4,7 +4,7 @@ import useServices from '../../Hooks/useServices/useServices';
 import ServiceItem from '../Item/ServiceItem';
 
 const Services = () => {
-    const {services} = useServices()
+    const { services } = useServices();
     return (
         <div className="container">
             <div className="mt-5 text-center">
