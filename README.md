@@ -2,15 +2,14 @@
 
 Our Live Website [Prolex](https://healthcare-related-websi-de7f4.web.app/).
 
-### * A Warm Welcome To Our Hospital. Bringing The Future of Healthcare
+### ● Prolex is Medical related website.
 
-### * Our Patient are Our Priority, We Offer Quality Medical Services of Specialists. More details about our services below.
+### ● On this website, users can see the services which are available and they can see the service's details that they want.
 
-### * We Protect You & Your Family
+### ● Also, email password and google login and registration feature added for users.
 
-### * We provide Professional Doctors, Exclusive Blood Bank, Track your Progress, Emergency services, Over 20 years of experience, We have experienced Doctor's.
+### ● This website includes private routes and normal routes and redirects user destinations.
 
-### * About Our Hospital
+### ● Dynamic route parameter added. Users can see detailed information for every cart.
 
-Our Patient are Our Priority, We Offer Quality Medical Services of Specialists. More details about our services below.
-But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.
+### ● Technology Used: Javascript (ES6) | HTML | CSS | Bootstrap | React | React Router | Firebase

@@ -35,9 +35,11 @@ const useFirebase = () => {
         updateProfile(auth.currentUser, {
             displayName: name
         })
-            .then(result => { })
+            .then(result => {
+                setError('');
+            })
             .catch(error => {
-                setError(error.massage);
+                setError(error.message);
             })
     }
 
@@ -70,6 +72,9 @@ const useFirebase = () => {
         signOut(auth)
             .then(() => {
                 setUser({});
+            })
+            .catch(error => {
+                setError(error.message);
             })
             .finally(() => setIsLoading(false));
     }

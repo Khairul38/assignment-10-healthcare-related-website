@@ -19,6 +19,7 @@ const Login = () => {
 
     /* Redirect */
     const location = useLocation();
+    console.log('came from', location.state?.from);
     const history = useHistory();
     const redirect_url = location?.state?.from || '/';
 
@@ -27,10 +28,11 @@ const Login = () => {
         loginUsingGoogle()
             .then(result => {
                 setUser(result.user);
+                setError('');
                 history.push(redirect_url);
             })
             .catch(error => {
-                setError(error.massage);
+                setError(error.message);
             })
             .finally(() => setIsLoading(false));
     }
@@ -40,10 +42,11 @@ const Login = () => {
         loginUsingFacebook()
             .then(result => {
                 setUser(result.user);
+                setError('');
                 history.push(redirect_url);
             })
             .catch(error => {
-                setError(error.massage);
+                setError(error.message);
             })
             .finally(() => setIsLoading(false));
     }
@@ -54,10 +57,11 @@ const Login = () => {
         handleLogin()
             .then(result => {
                 setUser(result.user);
+                setError('');
                 history.push(redirect_url);
             })
             .catch(error => {
-                setError(error.massage);
+                setError(error.message);
             })
             .finally(() => setIsLoading(false));
     }
@@ -76,9 +80,6 @@ const Login = () => {
                         <input onBlur={getEmail} type="email" className="form-control" id="validationDefault02"
                             placeholder="Email" aria-label="Email"
                             autoComplete="email" required />
-                        <div className="text-danger">
-                            {error}
-                        </div>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="validationDefault03" className="form-label">Password</label>

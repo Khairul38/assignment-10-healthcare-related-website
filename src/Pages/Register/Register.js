@@ -21,6 +21,7 @@ const Register = () => {
 
     /* Redirect */
     const location = useLocation();
+    console.log('came from', location.state?.from);
     const history = useHistory();
     const redirect_url = location?.state?.from || '/';
 
@@ -29,10 +30,11 @@ const Register = () => {
         loginUsingGoogle()
             .then(result => {
                 setUser(result.user);
+                setError('');
                 history.push(redirect_url);
             })
             .catch(error => {
-                setError(error.massage);
+                setError(error.message);
             })
             .finally(() => setIsLoading(false));
     }
@@ -42,10 +44,11 @@ const Register = () => {
         loginUsingFacebook()
             .then(result => {
                 setUser(result.user);
+                setError('');
                 history.push(redirect_url);
             })
             .catch(error => {
-                setError(error.massage);
+                setError(error.message);
             })
             .finally(() => setIsLoading(false));
     }
@@ -57,11 +60,12 @@ const Register = () => {
             .then(result => {
                 setUser(result.user);
                 setUserName();
+                setError('');
                 history.push(redirect_url);
                 window.location.reload();
             })
             .catch(error => {
-                setError(error.massage);
+                setError(error.message);
             })
             .finally(() => setIsLoading(false));
     }
@@ -79,9 +83,6 @@ const Register = () => {
                         {/* On Blur */}
                         <input onBlur={getName} type="text" className="form-control" id="validationDefault01" placeholder="Name" aria-label="Name"
                             required />
-                        <div className="text-danger">
-                            {error}
-                        </div>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="validationDefault02" className="form-label">Email</label>
@@ -89,9 +90,6 @@ const Register = () => {
                         <input onBlur={getEmail} type="email" className="form-control" id="validationDefault02"
                             placeholder="Email" aria-label="Email"
                             autoComplete="email" required />
-                        <div className="text-danger">
-                            {error}
-                        </div>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="validationDefault03" className="form-label">Password</label>
